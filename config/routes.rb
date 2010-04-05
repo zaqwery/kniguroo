@@ -2,7 +2,7 @@ Kniguroo::Application.routes.draw do |map|
   resources :books
 
   resources :users
-
+  match '/' => 'books#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
