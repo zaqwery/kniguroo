@@ -1,9 +1,9 @@
-class BooksController < ApplicationController
+class BooksController < ApplicationController 
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
-
+    @existing_books = Book.find(:all, :conditions => {:state => 'existing'})
+    @sought_books = Book.find(:all, :conditions => {:state => 'is_being_sought'})
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @books }
@@ -23,9 +23,23 @@ class BooksController < ApplicationController
 
   # GET /books/new
   # GET /books/new.xml
-  def new
+  def new 
     @book = Book.new
-
+   # begin
+    #  @book.show_as_existing!
+  #  rescue 
+    #  @book.failure!
+  #  end
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @book }
+    end
+  end  
+  
+  def new_sought 
+    @book = Book.new
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @book }
@@ -41,6 +55,12 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
+    #if @book.state == 'submitted'
+     # @book.show_as_existing!
+    #else
+     #  @book.show_as_being_sought!
+    #end
+    #@book.show_as_existing!
 
     respond_to do |format|
       if @book.save
@@ -80,4 +100,12 @@ class BooksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def show_existing
+
+  end
+  
+  def show_sought
+  end
+
 end

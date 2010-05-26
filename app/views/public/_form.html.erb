@@ -17,7 +17,7 @@
     <%= f.label :year %><br />
     <%= f.text_field :year %>
   </div>
-  <% if current_page?(:controller => 'books', :action => 'new_sought') %>
+  <% if current_page?(:controller => 'public', :action => 'new_sought') %>
 	<%= f.hidden_field(:state, :value => 'is_being_sought') %>
   <% else %>
 	<%= f.hidden_field(:state, :value => 'existing') %> 

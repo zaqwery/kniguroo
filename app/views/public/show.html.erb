@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+			<% if @book != nil -%>
+				ID: <%= @book.id %><br />
+				Название: <%= @book.title %><br />
+				Автор <%= @book.author %><br />
+			<% else -%>
+				No record found.
+			<% end -%>
+			<%= link_to('Back', :action => 'list') %> | 
+			<%= link_to('Edit', :action => 'edit', :id => @book.id)%> | 
+			<%= link_to('Destroy', {:action => 'destroy', :id => @book.id}, :confirm => 'Are you sure?')%>
+	</body>
+</html>

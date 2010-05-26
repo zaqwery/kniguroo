@@ -1,9 +1,29 @@
-body { background-color: #fff; color: #333dd; }
+body { background-color: #dceded; color: #044668; }
 
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
+body, p, ol, ul, {
+  font-family: tahoma, arial, helvetica, sans-serif;
+  font-size:   18pt;
   line-height: 18px;
+  text-align: left;
+} 
+
+#name {
+	font-family: tahoma, arial, helvetica, sans-serif;
+	font-size:   28pt;
+}
+  
+h1 {
+  font-family: tahoma, arial, helvetica, sans-serif;
+  font-size:   18pt;
+  line-height: 18px;
+  text-align: left;
+}
+
+td {
+  font-family: tahoma, arial, helvetica, sans-serif;
+  font-size:   12pt;
+  line-height: 16px;
+  text-align: left;
 }
 
 pre {
