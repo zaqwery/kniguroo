@@ -11,6 +11,8 @@ class PublicController < ApplicationController
   
   def new
     @book = Book.new
+    #@book.genre_list
+    #@book.author_list
   end
   
   def new_sought 

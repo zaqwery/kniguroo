@@ -7,7 +7,11 @@
   </div>
   <div class="field">
     <%= f.label :author %><br />
-    <%= f.text_field :author %>
+    <%= f.text_field :author_list %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br />
+    <%= f.text_field :genre_list %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -23,6 +27,6 @@
 	<%= f.hidden_field(:state, :value => 'existing') %> 
   <% end %>  
   <div class="actions">   
-	<%= f.submit %>
+	<%= f.submit(:controller => 'public', :action => 'create') %>
   </div>
 <% end %>

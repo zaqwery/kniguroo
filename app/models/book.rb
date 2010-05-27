@@ -1,11 +1,14 @@
 class Book < ActiveRecord::Base    
+
+  validates_presence_of :title 
   
   belongs_to :user
-  validates_presence_of :title
+
+  #acts_as_taggable
+  acts_as_taggable_on :genre, :author
   
   
-  #acts_as_commentable 
-                                        
+  #acts_as_commentable                                       
   include AASM
   
   aasm_column :state
