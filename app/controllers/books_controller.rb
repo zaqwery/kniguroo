@@ -4,12 +4,12 @@ class BooksController < ApplicationController
   def index
     @existing_books = Book.paginate(:all, 
                                     :conditions => {:state => 'existing'},
-                                    :page => params[:page]) 
+                                    :page => params[:type].eql?('books') ? params[:page] : nil) 
                                     
     #@existing_books = Book.find(:all, :conditions => {:state => 'existing'})
     @sought_books = Book.paginate(:all,
                                   :conditions => {:state => 'is_being_sought'},
-                                  :page => params[:page])
+                                  :page => params[:type].eql?('sought_books') ? params[:page] : nil)
     #@books = ex_books.paginate :page => params[:page]
     #@books = Book.paginate :all :conditions => {:state => 'existing'} :page => params[:page]
     respond_to do |format|

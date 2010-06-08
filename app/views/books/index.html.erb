@@ -13,7 +13,7 @@
         </li>
     </ul>   
     <% end %> 
-        <%= will_paginate @existing_books %><br /> 
+        <%= will_paginate @existing_books, :params => params.merge({:type => 'books'}) %><br /> 
     	<%= link_to 'New Existing book', new_book_path %> <br />
     	
          
@@ -34,7 +34,7 @@
        </li>
    </ul>   
    <% end %>
-   <%= will_paginate @sought_books %>
+   <%= will_paginate @sought_books, :params => params.merge({:type => 'sought_books'}) %>
    <%= link_to 'I seek a book', {:controller => "books", :action => "new_sought"} %> 
 </div>
 
