@@ -1,6 +1,8 @@
 
 <% for book in @existing_books do -%>
-<%= link_to(book.inspect, :controller => 'public', :action => 'show', :id => book.id) %><br />
+<%= link_to(book.title, :controller => 'public', :action => 'show', :id => book.id) %><br />
+<%= book.genre %><br />
+<%= book.author %><br />
 <% end -%>
 
 <br /> 
@@ -8,7 +10,9 @@
 <%= link_to 'Я хочу поделится книгой', :action => 'new' %> <br /> <br />  
 
 <% for book in @sought_books do -%>
-<%= link_to(book.inspect, :controller => 'public', :action => 'show', :id => book.id) %><br />
+<%= link_to(book.title, :controller => 'public', :action => 'show', :id => book.id) %><br />
+<%= book.genre %><br />
+<%= book.author %><br />
 <% end -%>
 
 <br />

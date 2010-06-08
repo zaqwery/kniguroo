@@ -20,14 +20,7 @@ class PublicController < ApplicationController
     render(:action => 'new') 
   end   
   
-  def create
-    @book = Book.new(params[:book])
-    if @book.save
-      redirect_to(:action => 'list')
-    else
-      render(:action => 'new')
-    end
-  end
+
   
   def edit 
     @book = Book.find(params[:id])

@@ -1,9 +1,11 @@
 Kniguroo::Application.routes.draw do |map|
-  resources :books, :users
-  map.new_sought '/new_sought', :controller => 'books', :action => 'new_sought'  
-  map.connect ':controller/:action' 
- 
-  match '/' => 'public#list'
+  resources :books, :users, :public
+  resource :account, :controller => "users" 
+  resource :user_session
+  map.root :controller => "user_sessions", :action => "new" 
+  
+  map.connect ':controller/:action'   
+  match '/' => 'books#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

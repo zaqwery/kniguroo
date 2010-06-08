@@ -12,4 +12,5 @@ gem 'pg'
 gem 'rubyist-aasm', :require => 'aasm'
 gem 'acts-as-taggable-on'
 gem 'russian', :require => 'russian'
-#gem 'will_paginate', :require => 'will_paginate'
+gem "will_paginate", "3.0.pre"
+gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'

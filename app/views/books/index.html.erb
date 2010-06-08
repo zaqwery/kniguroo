@@ -1,34 +1,46 @@
+<div id="container">
+<div id="existing_books">
+    <h3>Народ предлагает:</h3>
+    <% @existing_books.each do |book| %> 
+    <ul>
+        <li>       
+            <div id="title"><%= book.title %></div>
+            <div id="extra"><%= book.author %>&nbsp;-&nbsp;<%= book.year %></div>
 
-<% @existing_books.each do |book| %>
+            <td><%= link_to 'Show', book %></td>
+    	    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    	    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>  
+        </li>
+    </ul>   
+    <% end %> 
+        <%= will_paginate @existing_books %><br /> 
+    	<%= link_to 'New Existing book', new_book_path %> <br />
+    	
+         
+</div>
 
-    <div id="title"><%= book.title %></div>
-    <div id=""><%= book.author %>
-    <!--><td><%= book.description %></td> -->
-    <td><%= book.year %></td>
-    <td><%= book.state %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-
-<% end %> 
-<br /> 
-
-<%= link_to 'New Existing book', new_book_path %> <br /> <br />  
-
+ 
+<div id="sought_books">
+    <h3>Народ ищет:</h3> 
 <% @sought_books.each do |book| %>
+   <ul>
+       <li>       
+           <div id="title"><%= book.title %></div>
+           <div id="extra"><%= book.author %>&nbsp;-&nbsp;<%= book.year %></div>
 
-    <div id="title"><%= book.title %></div>
-    <div id=""><%= book.author %>
-    <!--><td><%= book.description %></td> -->
-    <td><%= book.year %></td>
-    <td><%= book.state %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-
-<% end %>
+           <td><%= link_to 'Show', book %></td>
+   	       <td><%= link_to 'Edit', edit_book_path(book) %></td>
+   	       <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>  
+       </li>
+   </ul>   
+   <% end %>
+   <%= will_paginate @sought_books %>
+   <%= link_to 'I seek a book', {:controller => "books", :action => "new_sought"} %> 
+</div>
 
 <br />
 
 
-<%= link_to 'I seek a book', {:controller => "books", :action => "new_sought"} %>
+
+<div class="clear">&nbsp;</div>    
+</div> 

@@ -1,5 +1,52 @@
 body { background-color: #dceded; color: #044668; }
 
+#container {
+	border-left: 200px solid maroon;
+	background: #f0f0f0;
+	margin: auto;
+	width:50%;
+}
+#existing_books {
+	background-color: #fff;
+	width: 400px;
+	height: 100%;
+	float: left;
+	margin-left: -200px;
+	/*overflow: hidden;*/
+
+}
+#existing_books ul {
+	position: relative;
+	background: #cce;
+	list-style: none;
+	margin:1px;
+}
+#existing_books li {
+	margin: 0px;
+	padding:0px; 
+}
+#sought_books {
+	background-color: #fcf;   
+	width:400px;
+	height: 100%;
+	margin-left:200px;
+}	
+#sought_books ul { 
+	position: relative;
+	list-style: none;
+	margin: 1px;
+	background:#2cf;	
+}
+#sought_books li {
+	margin: 0;
+	padding:0;  
+} 
+#extra {
+	
+}
+div.clear {
+ clear: both; /* Убираем все плавающие элементы */
+}
 body, p, ol, ul, {
   font-family: tahoma, arial, helvetica, sans-serif;
   font-size:   18pt;
@@ -7,10 +54,6 @@ body, p, ol, ul, {
   text-align: left;
 } 
 
-#name {
-	font-family: tahoma, arial, helvetica, sans-serif;
-	font-size:   28pt;
-}
   
 h1 {
   font-family: tahoma, arial, helvetica, sans-serif;
@@ -48,6 +91,11 @@ div.field, div.actions {
   padding: 2px;
   background-color: red;
   display: table;
+} 
+
+#title {
+	font-family: tahoma, arial, helvetica, sans-serif;
+	font-size:   28pt;
 }
 
 #errorExplanation {

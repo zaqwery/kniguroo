@@ -2,8 +2,16 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @existing_books = Book.find(:all, :conditions => {:state => 'existing'})
-    @sought_books = Book.find(:all, :conditions => {:state => 'is_being_sought'})
+    @existing_books = Book.paginate(:all, 
+                                    :conditions => {:state => 'existing'},
+                                    :page => params[:page]) 
+                                    
+    #@existing_books = Book.find(:all, :conditions => {:state => 'existing'})
+    @sought_books = Book.paginate(:all,
+                                  :conditions => {:state => 'is_being_sought'},
+                                  :page => params[:page])
+    #@books = ex_books.paginate :page => params[:page]
+    #@books = Book.paginate :all :conditions => {:state => 'existing'} :page => params[:page]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @books }
@@ -25,12 +33,6 @@ class BooksController < ApplicationController
   # GET /books/new.xml
   def new 
     @book = Book.new
-   # begin
-    #  @book.show_as_existing!
-  #  rescue 
-    #  @book.failure!
-  #  end
-    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @book }
@@ -55,22 +57,14 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
-    #if @book.state == 'submitted'
-     # @book.show_as_existing!
-    #else
-     #  @book.show_as_being_sought!
-    #end
-    #@book.show_as_existing!
 
-    respond_to do |format|
       if @book.save
-        format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
-        format.xml  { render :xml => @book, :status => :created, :location => @book }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
+         flash[:notice] = 'Book was successfully created.'
+         render :action => 'show'
+       else
+         @books = Book.find(:all)
+         render :action => 'new'
       end
-    end
   end
 
   # PUT /books/1
